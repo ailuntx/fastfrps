@@ -1,0 +1,26 @@
+# FastFRP Server Configuration Template
+# This template uses environment variable substitution via envsubst
+
+# Bind port for FRP server (default: 7000)
+# 服务器监听端口（默认：7000）
+bindPort = 7000
+
+# Authentication token for client connections
+# Must match the token configured on clients
+# Environment variable: TOKEN
+# 客户端连接认证令牌
+auth.method = "token"
+auth.token = "${TOKEN}"
+
+# Dashboard web interface
+# Environment variables: DASHBOARD_PORT, DASHBOARD_USER, DASHBOARD_PWD
+# 管理面板
+webServer.addr = "0.0.0.0"
+webServer.port = ${DASHBOARD_PORT}
+webServer.user = "${DASHBOARD_USER}"
+webServer.password = "${DASHBOARD_PWD}"
+
+# Maximum connection pool size per client
+# Environment variable: MAX_POOL_COUNT
+# 每个客户端的最大连接池数量
+transport.maxPoolCount = ${MAX_POOL_COUNT}
